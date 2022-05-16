@@ -1,11 +1,12 @@
 import React from 'react';
+import SearchInput from "./SearchInput";
 
-const Index = () => {
+const Main = () => {
     return (
-        <div>
-            
+        <div className='main'>
+            <SearchInput />
         </div>
     );
 };
 
-export default Index;
+export default Main;
