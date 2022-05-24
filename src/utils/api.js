@@ -1,2 +1,2 @@
-const MAIN_LINK = `http://www.omdbapi.com/?apikey=[${KEY}]&t`
-const KEY = 'eece1fef'
+export const MAIN_LINK = `http://www.omdbapi.com/?apikey=eece1fef&t=back`
+
