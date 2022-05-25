@@ -11,29 +11,37 @@ const FilmCard = () => {
             setIsLoading(true)
             await fetch(MAIN_LINK)
                 .then(respose => respose.json())
-                .then(data => console.log(data))
+                .then(data => setItems(data))
 
-            // // setItems(result)
-            // // setIsLoading(false)
+            // setItems(result)
+            setIsLoading(false)
         }
-        console.log(items)
 
 
         fetchItems();
 
     }, [])
 
+    // console.log(items)
 
     return (
         <React.Fragment>
-            <Card style={{width: '18rem'}}>
-                <Card.Img variant="top" src={items.Poster}/>
-                <Card.Body>
-                    <Card.Title>{items.Title}</Card.Title>
-                    <Card.Text>{items.Plot}</Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-            </Card>
+            {!!items.length && items.map(item =>
+                <Card style={{width: '18rem'}}>
+                    <Card.Img variant="top" src={item.search.Poster}/>
+                    <Card.Body>
+                        <Card.Title>{item.search.Title}</Card.Title>
+                        <Card.Text>{item.search.Year}</Card.Text>
+                    </Card.Body>
+                </Card>
+            )}
+            {/*<Card style={{width: '18rem'}}>*/}
+            {/*    <Card.Img variant="top" src={items.Poster}/>*/}
+            {/*    <Card.Body>*/}
+            {/*        <Card.Title>{items.Title}</Card.Title>*/}
+            {/*        <Card.Text>{items.Year}</Card.Text>*/}
+            {/*    </Card.Body>*/}
+            {/*</Card>*/}
         </React.Fragment>
     );
 };
